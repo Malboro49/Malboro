@@ -169,21 +169,28 @@
 
     .modpack-info strong { color: #ff0033; }
 
-    select {
-      width: 100%;
-      padding: 12px 15px;
+    .version-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .version-tag {
+      display: inline-block;
       background: #0d0000;
       color: #ffffff;
       border: 1px solid #ff0033;
       border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 15px;
-      cursor: pointer;
-      outline: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 8px rgba(255,255,255,0.8),
+        0 0 20px rgba(255,0,51,0.5);
     }
-
-    select:hover { background: #1a0000; }
 
     .download-link {
       display: inline-block;
@@ -204,17 +211,6 @@
       background: #ffffff;
       color: #ff0033;
       box-shadow: 0 0 30px rgba(255, 0, 51, 0.7);
-    }
-
-    .version-label {
-      display: block;
-      margin-bottom: 10px;
-      color: #ffffff;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.8),
-        0 0 20px rgba(255,0,51,0.5);
     }
 
     /* FEATURES */
@@ -408,21 +404,9 @@
             <p><strong>Рекомендуемая ОЗУ:</strong> 16 ГБ</p>
           </div>
 
-          <div>
-            <label for="version" class="version-label">ВЫБЕРИ ВЕРСИЮ</label>
-            <select id="version">
-              <option value="https://ССЫЛКА_1_20_1">1.20.1 Forge</option>
-              <option value="https://ССЫЛКА_1_20_2">1.20.2 Forge</option>
-              <option value="https://ССЫЛКА_1_20_4">1.20.4 Forge</option>
-              <option value="https://ССЫЛКА_1_20_6">1.20.6 Forge</option>
-              <option value="https://ССЫЛКА_1_21_0">1.21.0 Forge</option>
-              <option value="https://ССЫЛКА_1_21_1">1.21.1 Forge</option>
-              <option value="https://ССЫЛКА_1_21_3">1.21.3 Forge</option>
-              <option value="https://ССЫЛКА_1_21_5">1.21.5 Forge</option>
-              <option value="https://ССЫЛКА_1_21_8">1.21.8 Forge</option>
-              <option value="https://ССЫЛКА_1_21_11">1.21.11 Forge</option>
-            </select>
-            <a id="downloadBtn" class="download-link" href="#" target="_blank">Скачать сборку(вирус)</a>
+          <div class="version-box">
+            <div class="version-tag">1.20.1 FORGE</div>
+            <a class="download-link" href="https://www.mediafire.com/folder/8r472m5ov04lf/сборка+1.20.1+forge" target="_blank">Скачать сборку</a>
           </div>
 
         </div>
@@ -465,10 +449,10 @@
       <h2>Мои ссылки</h2>
       <div class="card">
         <div class="social-grid">
-        <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
-        <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
-        <a class="btn" href="https://discord.gg/sbm4E8auQ" target="_blank">Дисковод</a>
-        <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+          <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
+          <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
+          <a class="btn" href="https://discord.gg/sbm4E8auQ" target="_blank">Дисковод</a>
+          <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
         </div>
       </div>
     </section>
@@ -479,17 +463,5 @@
     </footer>
 
   </div>
-
-  <script>
-    const versionSelect = document.getElementById('version');
-    const downloadBtn = document.getElementById('downloadBtn');
-
-    function updateLink() {
-      downloadBtn.href = versionSelect.value;
-    }
-
-    versionSelect.addEventListener('change', updateLink);
-    updateLink();
-  </script>
 </body>
 </html>
