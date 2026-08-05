@@ -213,6 +213,44 @@
       box-shadow: 0 0 30px rgba(255, 0, 51, 0.7);
     }
 
+    /* VIDEO BOX */
+    .video-box {
+      margin-top: 25px;
+      background: #0d0000;
+      border: 1px solid rgba(255, 0, 51, 0.4);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 0, 51, 0.15);
+    }
+
+    .video-box:hover {
+      border-color: #ff0033;
+      box-shadow: 0 0 35px rgba(255, 0, 51, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .video-title {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 25px rgba(255,255,255,0.5),
+        0 0 45px rgba(255, 0, 51, 0.6);
+    }
+
+    .video-box video {
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      box-shadow: 0 0 25px rgba(255, 0, 51, 0.25);
+    }
+
     /* FEATURES */
     .features {
       display: grid;
@@ -344,6 +382,7 @@
       .social-grid { grid-template-columns: 1fr 1fr; }
       header { flex-direction: column; gap: 15px; }
       nav a { margin: 0 10px; }
+      .video-title { font-size: 20px; letter-spacing: 2px; }
     }
   </style>
 </head>
@@ -410,6 +449,16 @@
           </div>
 
         </div>
+
+        <!-- VIDEO BOX -->
+        <div class="video-box">
+          <div class="video-title">Разбор модов</div>
+          <video controls preload="metadata">
+            <source src="0805.mp4" type="video/mp4">
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+        </div>
+
       </div>
     </section>
 
