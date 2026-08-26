@@ -1,516 +1,483 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>бляздец</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
+<!DOCTYPE html><html lang="ru"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>бляздец</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+text
 
-    html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-    body {
-      background: radial-gradient(circle at top, #1c1c1c, #000000 70%);
-      color: #f5f5f5;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+body {
+  background: radial-gradient(circle at top, #1c1c1c, #000000 70%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    /* HEADER */
-    header {
-      padding: 25px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
+/* HEADER */
+header {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.9),
-        0 0 20px rgba(255, 255, 255, 0.6),
-        0 0 40px rgba(255, 255, 255, 0.3);
-    }
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2px;
+  /* Уменьшено свечение логотипа */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
 
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 500;
-      transition: 0.3s;
-      position: relative;
-    }
+nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 2px;
-      background: #ffffff;
-      transition: 0.3s;
-    }
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: 0.3s;
+}
 
-    nav a:hover { color: #ffffff; }
-    nav a:hover::after { width: 100%; }
+nav a:hover { color: #ffffff; }
+nav a:hover::after { width: 100%; }
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 120px 20px 90px;
-      animation: fadeIn 1.5s ease;
-    }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 120px 20px 90px;
+  animation: fadeIn 1.5s ease;
+}
 
-    .hero h1 {
-      font-size: 90px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 8px;
-      text-shadow:
-        0 0 15px rgba(255, 255, 255, 1),
-        0 0 30px rgba(255, 255, 255, 0.8),
-        0 0 60px rgba(255, 255, 255, 0.4),
-        0 0 90px rgba(255, 255, 255, 0.2);
-      animation: pulseWhite 2.5s infinite ease-in-out;
-    }
+.hero h1 {
+  font-size: 90px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 8px;
+  /* Значительно уменьшено базовое свечение главного заголовка */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  animation: pulseWhite 2.5s infinite ease-in-out;
+}
 
-    .hero p {
-      font-size: 22px;
-      color: #cccccc;
-      margin: 25px 0 40px;
-    }
+.hero p {
+  font-size: 22px;
+  color: #cccccc;
+  margin: 25px 0 40px;
+}
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
 
-    .btn {
-      text-decoration: none;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 14px 28px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: 0.3s ease;
-    }
+.btn {
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
 
-    .btn:hover {
-      background: #ffffff;
-      color: #000;
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-    }
+.btn:hover {
+  background: #ffffff;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
 
-    /* SECTIONS */
-    section { padding: 70px 0; }
+/* SECTIONS */
+section { padding: 70px 0; }
 
-    h2 {
-      font-size: 36px;
-      color: #ffffff;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      border-left: 4px solid #ffffff;
-      padding-left: 15px;
-      text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.9),
-        0 0 25px rgba(255, 255, 255, 0.5),
-        0 0 45px rgba(255, 255, 255, 0.2);
-    }
+h2 {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-left: 4px solid #ffffff;
+  padding-left: 15px;
+  /* Уменьшено свечение заголовков разделов */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
 
-    .card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 30px;
-      margin-top: 20px;
-      transition: 0.3s ease;
-    }
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
-      border-color: #ffffff;
-    }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
 
-    /* MODPACK */
-    .modpack-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+/* MODPACK */
+.modpack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
 
-    .modpack-info p {
-      margin-bottom: 12px;
-      color: #dddddd;
-      line-height: 1.6;
-    }
+.modpack-info p {
+  margin-bottom: 12px;
+  color: #dddddd;
+  line-height: 1.6;
+}
 
-    .modpack-info strong { color: #ffffff; }
+.modpack-info strong { color: #ffffff; }
 
-    .version-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-    }
+.version-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
 
-    .version-tag {
-      display: inline-block;
-      background: #0a0a0a;
-      color: #ffffff;
-      border: 1px solid #ffffff;
-      border-radius: 8px;
-      padding: 12px 25px;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.8),
-        0 0 20px rgba(255,255,255,0.3);
-    }
+.version-tag {
+  display: inline-block;
+  background: #0a0a0a;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  /* Убрано размывающее свечение букв для четкости */
+  text-shadow: none;
+}
 
-    .download-link {
-      display: inline-block;
-      text-decoration: none;
-      color: #000;
-      background: #ffffff;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-      width: 100%;
-      text-align: center;
-    }
+.download-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  background: #ffffff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  width: 100%;
+  text-align: center;
+}
 
-    .download-link:hover {
-      background: #cccccc;
-      color: #000000;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-    }
+.download-link:hover {
+  background: #cccccc;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
 
-    /* VIDEO BOX */
-    .video-box {
-      margin-top: 25px;
-      background: #0a0a0a;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      transition: 0.3s ease;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
-    }
+/* VIDEO BOX */
+.video-box {
+  margin-top: 25px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
 
-    .video-box:hover {
-      border-color: #ffffff;
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
-      transform: translateY(-3px);
-    }
+.video-box:hover {
+  border-color: #ffffff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
 
-    .video-title {
-      color: #ffffff;
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-shadow:
-        0 0 10px rgba(255,255,255,0.9),
-        0 0 25px rgba(255,255,255,0.5),
-        0 0 45px rgba(255, 255, 255, 0.3);
-    }
+.video-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  /* Уменьшено свечение заголовка видео */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
 
-    .video-box video {
-      width: 100%;
-      border-radius: 15px;
-      display: block;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-    }
+.video-box video {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
 
-    /* FEATURES */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 20px;
-    }
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
 
-    .feature {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      transition: 0.3s;
-    }
+.feature {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
 
-    .feature:hover {
-      transform: translateY(-6px);
-      border-color: #ffffff;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-    }
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
 
-    .feature h3 {
-      color: #ffffff;
-      margin-bottom: 10px;
-      font-size: 20px;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.9),
-        0 0 20px rgba(255,255,255,0.3);
-    }
+.feature h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  /* Убрано свечение для мелких заголовков карточек */
+  text-shadow: none;
+}
 
-    .feature p { color: #cccccc; font-size: 15px; }
+.feature p { color: #cccccc; font-size: 15px; }
 
-    /* STREAM STATUS */
-    .stream-status {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 18px;
-      color: #cccccc;
-    }
+/* STREAM STATUS */
+.stream-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: #cccccc;
+}
 
-    .status-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #ffffff;
-      box-shadow: 0 0 15px #ffffff;
-      animation: blink 1.4s infinite;
-    }
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff;
+  animation: blink 1.4s infinite;
+}
 
-    /* SOCIAL */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
+/* SOCIAL */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
 
-    .social-btn {
-      display: block;
-      text-align: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+.social-btn {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
 
-    .social-btn:hover {
-      background: #ffffff;
-      color: #000;
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
-    }
+.social-btn:hover {
+  background: #ffffff;
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      color: #666;
-      font-size: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 40px;
-    }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
 
-    footer span { color: #ffffff; }
+footer span { color: #ffffff; }
 
-    /* ANIMATIONS */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes pulseWhite {
-      0%, 100% {
-        text-shadow:
-          0 0 15px rgba(255,255,255,1),
-          0 0 30px rgba(255,255,255,0.8),
-          0 0 60px rgba(255,255,255,0.4),
-          0 0 90px rgba(255,255,255,0.2);
-      }
-      50% {
-        text-shadow:
-          0 0 25px rgba(255,255,255,1),
-          0 0 50px rgba(255,255,255,1),
-          0 0 90px rgba(255,255,255,0.6),
-          0 0 130px rgba(255,255,255,0.4);
-      }
-    }
+/* Смягченная пульсация свечения для главного заголовка */
+@keyframes pulseWhite {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+}
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 55px; letter-spacing: 4px; }
-      .modpack-grid { grid-template-columns: 1fr; }
-      .features { grid-template-columns: 1fr; }
-      .social-grid { grid-template-columns: 1fr 1fr; }
-      header { flex-direction: column; gap: 15px; }
-      nav a { margin: 0 10px; }
-      .video-title { font-size: 20px; letter-spacing: 2px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 55px; letter-spacing: 4px; }
+  .modpack-grid { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr 1fr; }
+  header { flex-direction: column; gap: 15px; }
+  nav a { margin: 0 10px; }
+  .video-title { font-size: 20px; letter-spacing: 2px; }
+}
+</style></head> <body> <div class="container">
+text
 
-    <!-- HEADER -->
-    <header>
-      <div class="logo">@malboro49</div>
-      <nav>
-        <a href="#about">Обо мне</a>
-        <a href="#modpack">Сборка</a>
-        <a href="#features">Возможности</a>
-        <a href="#links">Ссылки</a>
-      </nav>
-    </header>
+<!-- HEADER -->
+<header>
+  <div class="logo">@malboro49</div>
+  <nav>
+    <a href="#about">Обо мне</a>
+    <a href="#modpack">Сборка</a>
+    <a href="#features">Возможности</a>
+    <a href="#links">Ссылки</a>
+  </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <h1>неправда</h1>
-      <p>Официальный сайт | Стримы, сборка Minecraft и контент</p>
-      <div class="buttons">
-        <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
-        <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
-        <a class="btn" href="https://discord.gg/UUH5Re49b" target="_blank">Дисковод</a>
-        <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+<!-- HERO -->
+<section class="hero">
+  <h1>неправда</h1>
+  <p>Официальный сайт | Стримы, сборка Minecraft и контент</p>
+  <div class="buttons">
+    <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
+    <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
+    <a class="btn" href="https://discord.gg/UUH5Re49b" target="_blank">Дисковод</a>
+    <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>Обо мне</h2>
+  <div class="card">
+    <p style="line-height: 1.7; color: #dddddd;">
+      приве, на моём сайте. я не стример, создаю контент и играю на своей авторской сборке.
+      Здесь ты можешь скачать сборку и подписаться на все мои соцсети.
+    </p>
+    <br>
+    <div class="stream-status">
+      <div class="status-dot"></div>
+      <span>пэр</span>
+    </div>
+  </div>
+</section>
+
+<!-- MODPACK -->
+<section id="modpack">
+  <h2>Моя сборка Minecraft</h2>
+  <div class="card">
+    <div class="modpack-grid">
+
+      <div class="modpack-info">
+        <p><strong>Название:</strong>мой пак</p>
+        <p><strong>Тип:</strong> Forge</p>
+        <p><strong>Оптимизация:</strong> нету, бо(</p>
+        <p><strong>Шейдеры:</strong> крутые</p>
+        <p><strong>Моды:</strong> на приятную игру и анимацию мобов</p>
+        <p><strong>Рекомендуемая ОЗУ:</strong> 16 ГБ</p>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>Обо мне</h2>
-      <div class="card">
-        <p style="line-height: 1.7; color: #dddddd;">
-          приве, на моём сайте. я не стример, создаю контент и играю на своей авторской сборке.
-          Здесь ты можешь скачать сборку и подписаться на все мои соцсети.
-        </p>
-        <br>
-        <div class="stream-status">
-          <div class="status-dot"></div>
-          <span>пэр</span>
-        </div>
+      <div class="version-box">
+        <div class="version-tag">1.20.1 FORGE</div>
+        <a class="download-link" href="https://download1351.mediafire.com/07lu5sd8kdfgmjiIGP3ySN1FjDb8lTMkCdxOV0RXmC6V8mn2BrWq5sVARHiauZBSzyR_rKDOUiCFX3woUQbVI3iUQQOqEnB-RRYjhswNwprSQtwkysiEDZ3264Lw6BosgYZXn7_ZgDKHALXjG1YGaILGaxNh5vWP9p2l-6X_5A2AUkk/5au9kdru2wlv893/%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0+1.20.1.zip" target="_blank">Скачать сборку</a>
       </div>
-    </section>
 
-    <!-- MODPACK -->
-    <section id="modpack">
-      <h2>Моя сборка Minecraft</h2>
-      <div class="card">
-        <div class="modpack-grid">
+    </div>
 
-          <div class="modpack-info">
-            <p><strong>Название:</strong>мой пак</p>
-            <p><strong>Тип:</strong> Forge</p>
-            <p><strong>Оптимизация:</strong> нету, бо(</p>
-            <p><strong>Шейдеры:</strong> крутые</p>
-            <p><strong>Моды:</strong> на приятную игру и анимацию мобов</p>
-            <p><strong>Рекомендуемая ОЗУ:</strong> 16 ГБ</p>
-          </div>
-
-          <div class="version-box">
-            <div class="version-tag">1.20.1 FORGE</div>
-            <a class="download-link" href="https://download1351.mediafire.com/07lu5sd8kdfgmjiIGP3ySN1FjDb8lTMkCdxOV0RXmC6V8mn2BrWq5sVARHiauZBSzyR_rKDOUiCFX3woUQbVI3iUQQOqEnB-RRYjhswNwprSQtwkysiEDZ3264Lw6BosgYZXn7_ZgDKHALXjG1YGaILGaxNh5vWP9p2l-6X_5A2AUkk/5au9kdru2wlv893/%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0+1.20.1.zip" target="_blank">Скачать сборку</a>
-          </div>
-
-        </div>
-
-        <!-- VIDEO BOX -->
-        <div class="video-box">
-          <div class="video-title">Разбор капта</div>
-          <video controls preload="metadata">
-            <source src="https://github.com/Malboro49/Malboro/releases/download/v1-video/0805.mp4" type="video/mp4">
-            Ваш браузер не поддерживает воспроизведение видео.
-          </video>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features">
-      <h2>что же тут</h2>
-      <div class="features">
-        <div class="feature">
-          <h3>стрем</h3>
-          <p>никогда не стримил</p>
-        </div>
-        <div class="feature">
-          <h3>СБОРКА</h3>
-          <p>говно</p>
-        </div>
-        <div class="feature">
-          <h3>КОНТЕНТ</h3>
-          <p>раз в год</p>
-        </div>
-        <div class="feature">
-          <h3>СООБЩЕСТВО</h3>
-          <p>самый опасный тгк</p>
-        </div>
-        <div class="feature">
-          <h3>ОБНОВЛЕНИЯ</h3>
-          <p>никогда</p>
-        </div>
-        <div class="feature">
-          <h3>ПОДДЕРЖКА</h3>
-          <p>как в энгри бердс активити парк</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- LINKS -->
-    <section id="links">
-      <h2>Мои ссылки</h2>
-      <div class="card">
-        <div class="social-grid">
-          <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
-          <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
-          <a class="btn" href="https://discord.gg/UUH5Re49b">Дисковод</a>
-          <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      © 2026 <span>ХАМАММ</span> | Все права не защищены
-    </footer>
+    <!-- VIDEO BOX -->
+    <div class="video-box">
+      <div class="video-title">Разбор капта</div>
+      <video controls preload="metadata">
+        <source src="https://github.com/Malboro49/Malboro/releases/download/v1-video/0805.mp4" type="video/mp4">
+        Ваш браузер не поддерживает воспроизведение видео.
+      </video>
+    </div>
 
   </div>
-</body>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <h2>что же тут</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>стрем</h3>
+      <p>никогда не стримил</p>
+    </div>
+    <div class="feature">
+      <h3>СБОРКА</h3>
+      <p>говно</p>
+    </div>
+    <div class="feature">
+      <h3>КОНТЕНТ</h3>
+      <p>раз в год</p>
+    </div>
+    <div class="feature">
+      <h3>СООБЩЕСТВО</h3>
+      <p>самый опасный тгк</p>
+    </div>
+    <div class="feature">
+      <h3>ОБНОВЛЕНИЯ</h3>
+      <p>никогда</p>
+    </div>
+    <div class="feature">
+      <h3>ПОДДЕРЖКА</h3>
+      <p>как в энгри бердс активити парк</p>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section id="links">
+  <h2>Мои ссылки</h2>
+  <div class="card">
+    <div class="social-grid">
+      <a class="btn" href="https://twitch.tv/Malboro49" target="_blank">Твэч</a>
+      <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
+      <a class="btn" href="https://discord.gg/UUH5Re49b">Дисковод</a>
+      <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <span>ХАМАММ</span> | Все права не защищены
+</footer>
+</div> </body>
 </html>
