@@ -1,3 +1,8 @@
+Вот обновленный код вашего сайта. В список кнопок (в главном блоке и внизу в разделе ссылок) добавлена новая кнопка **«Купить ИИ сборку»**. 
+
+Она стилизована под заблокированную: перекрещена реалистичной черно-желтой сигнальной лентой, а поверх на полупрозрачный скотч «приклеен» листок бумаги с предупреждением «ЗАКРЫТО НА ТЕХ.ОБСЛУЖИВАНИЕ».
+
+```html
 <!DOCTYPE html><html lang="ru"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>бляздец</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
 text
 
@@ -84,6 +89,7 @@ nav a:hover::after { width: 100%; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 15px;
 }
 
@@ -104,6 +110,95 @@ nav a:hover::after { width: 100%; }
   color: #000;
   transform: translateY(-3px);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* BLOCKED BUTTON STYLE */
+.blocked-btn-container {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.buy-ai-btn {
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.hazard-tape {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  right: -10px;
+  height: 18px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #f5d300,
+    #f5d300 8px,
+    #121212 8px,
+    #121212 16px
+  );
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tape-1 {
+  transform: translateY(-50%) rotate(-12deg);
+}
+
+.tape-2 {
+  transform: translateY(-50%) rotate(12deg);
+}
+
+.maintenance-note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  background: #fbf8eb;
+  color: #d32f2f;
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #e2dbbe;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.scotch {
+  position: absolute;
+  width: 22px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(1px);
+  border-left: 1px dashed rgba(255, 255, 255, 0.3);
+  border-right: 1px dashed rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.scotch-tl {
+  top: -6px;
+  left: -10px;
+  transform: rotate(-30deg);
+}
+
+.scotch-br {
+  bottom: -6px;
+  right: -10px;
+  transform: rotate(-35deg);
 }
 
 /* SECTIONS */
@@ -285,9 +380,10 @@ h2 {
 /* SOCIAL */
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   margin-top: 20px;
+  align-items: center;
 }
 
 .social-btn {
@@ -346,6 +442,10 @@ footer span { color: #ffffff; }
 }
 
 /* MOBILE */
+@media (max-width: 992px) {
+  .social-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 768px) {
   .hero h1 { font-size: 55px; letter-spacing: 4px; }
   .modpack-grid { grid-template-columns: 1fr; }
@@ -378,6 +478,18 @@ text
     <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
     <a class="btn" href="https://discord.gg/UUH5Re49b" target="_blank">Дисковод</a>
     <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+    
+    <!-- ЗАБЛОКИРОВАННАЯ КНОПКА КУПИТЬ ИИ СБОРКУ -->
+    <div class="blocked-btn-container">
+      <a class="btn buy-ai-btn" href="#" onclick="return false;">Купить ИИ сборку</a>
+      <div class="hazard-tape tape-1"></div>
+      <div class="hazard-tape tape-2"></div>
+      <div class="maintenance-note">
+        <div class="scotch scotch-tl"></div>
+        <div class="scotch scotch-br"></div>
+        закрыто на тех.обслуживание
+      </div>
+    </div>
   </div>
 </section>
 
@@ -471,6 +583,18 @@ text
       <a class="btn" href="https://t.me/Malboro40" target="_blank">Так называемая телега</a>
       <a class="btn" href="https://discord.gg/UUH5Re49b">Дисковод</a>
       <a class="btn" href="https://www.youtube.com/@Malboro42" target="_blank">Утуб</a>
+      
+      <!-- ТАКЖЕ ДОБАВЛЕНА СЮДА ДЛЯ СИММЕТРИИ -->
+      <div class="blocked-btn-container" style="width: 100%;">
+        <a class="btn buy-ai-btn" href="#" onclick="return false;" style="display: block; text-align: center; width: 100%;">Купить ИИ сборку</a>
+        <div class="hazard-tape tape-1"></div>
+        <div class="hazard-tape tape-2"></div>
+        <div class="maintenance-note">
+          <div class="scotch scotch-tl"></div>
+          <div class="scotch scotch-br"></div>
+          закрыто на тех.обслуживание
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -481,3 +605,4 @@ text
 </footer>
 </div> </body>
 </html>
+```
